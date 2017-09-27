@@ -7,7 +7,7 @@ LD=$(CROSS_COMPILE)ld
 OBJCOPY=$(CROSS_COMPILE)objcopy
 
 CFLAGS=-G 0 -march=mips3 -mabi=32 -nostdinc -fno-pic -mno-abicalls -Wall
-LDFLAGS=-Ttext bfc00000
+LDFLAGS=-Ttext 80100000
 
 QEMU=/opt/clab/bin/qemu-system-mips64
 
