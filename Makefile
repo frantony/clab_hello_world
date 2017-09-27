@@ -1,6 +1,6 @@
 # Makefile for clab_hello_world
 
-CROSS_COMPILE=/opt/clab/mips64-clab-elf/bin/mips-clab-
+CROSS_COMPILE=mips-linux-gnu-
 
 CC=$(CROSS_COMPILE)gcc
 LD=$(CROSS_COMPILE)ld
