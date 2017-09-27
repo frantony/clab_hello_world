@@ -11,6 +11,9 @@
 /* смещение регистра передачи данных посл. интерфейса (THR) */
 #define UART_TX         0x0
 
+#define UART_LSR        0x5
+#define UART_LSR_THRE   0x20    /* Xmit holding register empty */
+
         /* запретить ассемблеру переставлять инструкции с целью оптимизации */
         .set noreorder
         /* поместим идущие ниже команды в сегмент text */
@@ -32,6 +35,11 @@ outs0:  lbu    t3, 0(t0)                /* получить в t3 очередн
         addi   t0, t0, 1                /* перейдём к следующему символу */
         beqz   t3, end                  /* если t3 == 0, то к end */
         nop                             /* слот задержки */
+
+201:    lbu     t2, UART_LSR(t1)        /* get line status */
+        andi    t2, t2, UART_LSR_THRE   /* check for transmitter empty */
+        beqz    t2, 201b                /* try again */
+        nop
 
         sb     t3, UART_TX(t1)          /* записать в регистр данных
                                            посл. интерфейса содержимое a0 */
