@@ -1,0 +1,9 @@
+clab_hello_world --- sample MIPS program.
+
+Copyright (C) 2010 Antony Pavlov <antonynpavlov@gmail.com>
+
+clab_hello_world is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2,
+see the COPYING file for details.
+
+Visit http://prizma.bmstu.ru/clab/ for docs.
